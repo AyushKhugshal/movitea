@@ -1,0 +1,52 @@
+@import "../../../styles/colors";
+
+.movie-item {
+  display: block;
+  position: relative;
+  border-radius: 5px;
+  border: 0.1px solid white;
+  min-height: 275px;
+  box-shadow: 0 4px 8px 0 rgba(203, 203, 203, 0.299);
+
+  &-image {
+    img {
+      height: 275px;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &-rating {
+    padding: 2px 8px;
+    top: 5px;
+    left: 5px;
+    position: absolute;
+    background: rgba(10, 9, 9, 0.582);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    border-color: rgba(59, 55, 55, 0.098);
+    border: 1px white;
+
+    .value {
+      margin-top: 3px;
+    }
+
+    .rating-value {
+      font-size: large;
+    }
+    .app-icon {
+      margin-right: 5px;
+      color: yellow;
+    }
+  }
+  &-title {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+    font-weight: bold;
+    margin: 0.5rem;
+  }
+}

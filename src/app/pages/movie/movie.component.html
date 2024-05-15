@@ -1,0 +1,100 @@
+<ng-container *ngIf="movieResponse">
+  <app-slider [items]="[movieResponse]" [isBanner]="true"></app-slider>
+  <p-tabView>
+    <p-tabPanel header="Overview">
+      <div class="grid">
+        <div class="col-12 md:col-3 ld:col-3 image-overview">
+          <img
+            class="poster"
+            src="https://image.tmdb.org/t/p/w220_and_h330_face{{ movieResponse.poster_path }}"
+            [alt]="movieResponse.title"
+          />
+        </div>
+        <div class="col-12 md:col-9 ld:col-9">
+          <h1>Overview</h1>
+          <p class="overview">{{ movieResponse.overview }}</p>
+          <p-divider type="solid"></p-divider>
+          <div class="stats">
+            <div class="label">Release Date :</div>
+            <div class="value">{{ movieResponse.release_date | date : "dd-MM-yyy" }}</div>
+          </div>
+          <div class="stats">
+            <div class="label">Language :</div>
+            <div class="value">{{ movieResponse.original_language | uppercase }}</div>
+          </div>
+          <div class="stats">
+            <div class="label">Revenue :</div>
+            <div class="value">{{ movieResponse.revenue | currency }}</div>
+          </div>
+          <div class="stats">
+            <div class="label">Duration :</div>
+            <div class="value">{{ movieResponse.runtime }} min</div>
+          </div>
+          <div class="stats">
+            <div class="label">Status :</div>
+            <div class="value">{{ movieResponse.status }}</div>
+          </div>
+          <div class="stats">
+            <div class="label">Genre :</div>
+            <div class="value">
+              <span *ngFor="let genre of movieResponse.genres">{{ genre.name }} </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p-carousel [value]="movieCredits" [numVisible]="5" [numScroll]="3" [circular]="false">
+          <ng-template let-cast pTemplate="item">
+            <div class="border-1 surface-border border-round m-2 text-center py-5 px-3">
+              <div class="mb-3" *ngIf="cast.profile_path">
+                <img
+                  src="https://image.tmdb.org/t/p/w500{{ cast.profile_path }}"
+                  [alt]="cast.name"
+                  class="w-6 shadow-2"
+                />
+              </div>
+              <div>
+                <h4 class="mb-1">{{ cast.name }}</h4>
+                <h6 class="mt-0 mb-3">{{ cast.character }}</h6>
+              </div>
+            </div>
+          </ng-template>
+        </p-carousel>
+      </div>
+    </p-tabPanel>
+    <p-tabPanel header="Videos">
+      <ng-container *ngFor="let item of movieVideo; let i = index">
+        <div class="movievid" *ngIf="i == count">
+          <app-video-item [key]="item.key"></app-video-item>
+        </div>
+      </ng-container>
+      <div class="arrow-icon">
+        <p-button icon="pi pi-check" styleClass="p-button-rounded p-button-outlined"
+          ><span class="app-icon" (click)="changeVideo(1)">arrow_forward_ios</span></p-button
+        >
+      </div>
+    </p-tabPanel>
+    <p-tabPanel header="Photos">
+      <!-- <p-galleria *ngIf="moviePhoto" [(value)]="moviePhoto"  [containerStyle]="{ 'max-width': '640px' }" [numVisible]="5">
+            <ng-template pTemplate="item" let-item>
+                <img [src]="item.itemImageSrc" style="width: 100%;" />
+            </ng-template>
+            <ng-template pTemplate="thumbnail" let-item>
+                <div class="grid grid-nogutter justify-content-center">
+                    <img [src]="item.thumbnailImageSrc" />
+                </div>
+            </ng-template>
+        </p-galleria> -->
+      <div class="photos-frame">
+        <div class="photos-frame-image" *ngFor="let photo of moviePhoto">
+          <p-image
+            src="https://image.tmdb.org/t/p/original{{ photo.file_path }}"
+            alt="Image"
+            width="350"
+            [preview]="true"
+          ></p-image>
+        </div>
+      </div>
+    </p-tabPanel>
+  </p-tabView>
+</ng-container>

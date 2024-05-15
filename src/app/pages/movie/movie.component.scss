@@ -1,0 +1,56 @@
+@import "../../../styles/colors";
+
+:host ::ng-deep {
+  .p-tabview-nav {
+    justify-content: center;
+    li {
+      .p-tabview-nav-link {
+        background-color: $bgColor;
+      }
+      &.p-highlight .p-tabview-nav-link {
+        background-color: $bgColor;
+      }
+    }
+  }
+}
+
+.poster {
+  max-width: 100%;
+}
+
+.stats {
+  display: flex;
+  margin-bottom: 15px;
+}
+.label {
+  width: 150px;
+  font-weight: bold;
+}
+.value {
+  color: $primaryColor;
+}
+
+.video-button {
+  display: flex;
+  justify-content: center;
+  background-color: $bgColor;
+}
+.arrow-icon {
+  justify-content: center;
+  display: flex;
+}
+.photos-frame {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  &-image {
+    margin-right: 10px;
+    margin: 10px;
+  }
+}
+.image-overview {
+  margin: auto;
+  img {
+    margin-right: 20px;
+  }
+}

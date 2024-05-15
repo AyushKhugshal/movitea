@@ -1,0 +1,14 @@
+<a class="movie-item" *ngIf="newItem" [routerLink]="'/movie/' + newItem.id" routerLinkActive="router-link-active">
+  <div class="movie-item-rating">
+    <i class="app-icon flex align-items-center">star</i>
+    <div class="value">
+      <span class="rating-value">{{ newItem.vote_average.toFixed(1) }}</span
+      ><span>/10</span>
+    </div>
+  </div>
+  <div class="movie-item-image">
+    <img src="https://image.tmdb.org/t/p/w220_and_h330_face{{ newItem.poster_path }}" alt="" />
+  </div>
+  <div class="movie-item-title">{{ newItem.title }}</div>
+  <a></a>
+</a>
