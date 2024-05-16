@@ -23,6 +23,7 @@ import { ImageModule } from 'primeng/image';
 import { CarouselModule } from 'primeng/carousel';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
+import { TvseriesComponent } from './pages/tvseries/tvseries.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { FormsModule } from '@angular/forms';
     ItemBannerComponent,
     MovieItemComponent,
     MovieComponent,
-    VideoItemComponent
+    VideoItemComponent,
+    TvseriesComponent
   ],
   imports: [
     BrowserModule,

@@ -3,10 +3,11 @@
 .movie-item {
   display: block;
   position: relative;
-  border-radius: 5px;
+  border-radius: 8px;
   border: 0.1px solid white;
-  min-height: 275px;
-  box-shadow: 0 4px 8px 0 rgba(203, 203, 203, 0.299);
+  min-height: 340px;
+  box-shadow: 0 4px 8px 0 rgba(133, 226, 242, 0.299);
+  transition: transform 0.3s ease;
 
   &-image {
     img {
@@ -49,4 +50,7 @@
     font-weight: bold;
     margin: 0.5rem;
   }
+}
+.movie-item:hover {
+  transform: scale(1.1);
 }
